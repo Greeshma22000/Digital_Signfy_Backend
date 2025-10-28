@@ -58,7 +58,7 @@ router.post('/request', authMiddleware, async (req, res) => {
     await newRequest.save();
 
     // ✅ Use your live frontend URL
-    const signUrl = `https://localhost:5173/${token}`;
+    const signUrl = `https://digital-signfy-frontend.vercel.app/${token}`;
     await sendSignatureRequestEmail(recipientEmail, signerName, signUrl, token); // ✅ token passed
 
     res.status(200).json({ message: 'Signature request sent', token });
